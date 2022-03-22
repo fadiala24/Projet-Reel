@@ -1,0 +1,126 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<!-- start page content -->
+
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center sous-header">
+            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-12">
+                <a [routerLink]="['/listBoutiquier']">
+                    <b>
+                        <i class="fas fa-chevron-left" style="font-weight: bold; font-size: 25px; color: #684f0e;"
+                            aria-hidden="true"></i>
+                    </b>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Information Personnelle</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex"></div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-12">
+                <div class="white-box">
+                    <div class="user-bg"> <img width="100%" alt="user" src="../../assets/plugins/images/infos.png">
+                        <div class="overlay-box">
+                            <div class="user-content">
+                                <!-- <a href="javascript:void(0)"><img src="{{photo}} + {{detailBoutiquier?.id}}"
+                                        class="thumb-lg img-circle" alt="photo"></a>
+                                <h4 class="text-white mt-2"> BOUTIQUIER  {{detailBoutiquier?.prenom}} &nbsp;&nbsp; {{detailBoutiquier?.nom}}</h4> -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-btm-box mt-5 d-md-flex">
+                        <div class="col-md-6 col-sm-6 text-center">
+                            <button class="btn btn-orange" style="background-color: #2D6000; color: white;"
+                                [routerLink]="['/updateBoutiquier', detailBoutiquier?.id]">
+                                <i class="fa fa-edit" aria-hidden="true"></i> Modifier</button>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal form-material">
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">BOUTIQUIER</label>
+                                <div class="col-md-12 border-bottom p-0" style="color:#2D6000;">{{detailBoutiquier?.prenom}}  {{detailBoutiquier?.nom}}</div>
+                            </div>
+                           
+                            <div class="form-group mb-4">
+                                <label for="example-email" class="col-md-12 p-0">Mot de Passe</label>
+                                <div class="col-md-12 border-bottom p-0" style="color:#2D6000;">
+                                    {{detailBoutiquier?.password}}</div>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label for="example-email" class="col-md-12 p-0">Telephone</label>
+                                <div class="col-md-12 border-bottom p-0" style="color:#2D6000;">
+                                    {{detailBoutiquier?.telephone}}</div>
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <div class="d-md-flex mb-3">
+                        <div class="row col-md-12 col-lg-12 col-sm-12">
+                            <div class="col-md-6 col-lg-6 col-sm-6">
+                                <h3 class="box-title mb-0">Coordonnées de connexions</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table no-wrap">
+                            <thead>
+                                <tr>
+                                   
+                                    <th class="border-top-0"><b>LOGIN</b></th>
+                                    <th class="border-top-0"><b>MOT DE PASSE</b></th>
+                                    <th class="border-top-0"><b>Etat</b></th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                    <td class="txt-oflo">{{detailBoutiquier?.login}}</td>
+                                    <td class="txt-oflo">{{detailBoutiquier?.password}}</td>
+                                    <td class="txt-oflo">{{detailBoutiquier?.etat}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

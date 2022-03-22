@@ -1,0 +1,44 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CategoryServiceService {
+  url=environment.url;
+
+  constructor(
+    private http : HttpClient
+  ) 
+  { }
+
+ //-------------------------------------------------------Produit  APi service --------------
+
+ getAllCategorie():Observable<any>{
+  return this.http.get(this.url+"Category/listCategorie");
+}
+addCategorie(data:any, photo:File):Observable <any>{
+  
+  const forms: FormData = new FormData();
+  forms.append("image", photo)
+  console.log("console du service"+ forms);
+  
+  return this.http.post(this.url+"Category/addCategorie",forms);
+}
+validCategory(data:any){
+  return this.http.post(this.url+"Category/validCategory",data,{responseType:'text'});
+}
+deleteCategorie(id:any){
+  return this.http.delete(this.url+"Category/deleteCategorie/"+id, {responseType:'text'});
+}
+
+
+detailCategorie(id:any){
+  return this.http.get(this.url +"Category/infoCategorie/"+id, {responseType:'text'});
+}
+updateCategorie(id: number, data: any){
+  return this.http.put(this.url+"Category/updateCategorie/"+id, data,  {responseType:'text'});
+}
+}

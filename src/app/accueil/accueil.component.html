@@ -1,0 +1,69 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+   
+    <p-carousel class="carousel" [value]="products" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+        <ng-template pTemplate="header">
+           
+        </ng-template>
+        <ng-template let-product pTemplate="item">
+            <div class="product-item">
+                <div class="product-item-content">
+                    <div class="mb-3">
+                        <img src="assets/{{product.image}}" [alt]="product.name" class="product-image" />
+                    </div>
+                    <div>
+                        <h4 class="p-mb-1">{{product.name}}</h4>
+                       
+                        <span [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+                       
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+    <div class="page-wrapper toot"> 
+        <div class="container-fluid">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm total a">
+            <div class="col-sm aa">
+              <i><img src="../../assets/icon/shopkeeper-removebg-preview.png"></i>
+            </div>
+            <div class="col-sm bb">
+              <h1>{{nombreBoutiquier}}</h1>
+              <p>Boutiquiers</p>
+            </div>
+          </div>
+          <div class="col-sm total b">
+            <div class="col-sm aa">
+              <i><img src="../../assets/icon/boutique (1).png"></i>
+            </div>
+            <div class="col-sm bb">
+            <h1>{{nombreBoutique}}</h1>
+            <p>Boutiques</p>
+          </div>
+          </div>
+          <div class="col-sm total c">
+            <div class="col-sm aa">
+              <i><img src="../../assets/icon/product.png"></i>
+          </div>
+          <div class="col-sm bb">
+            <h1>{{nombreProduit}}</h1>
+            <p>Produits</p>
+          </div>
+        </div>
+        <!-- <div class="col-sm total c">
+            <div class="col-sm aa">
+              <i class="fa fa-users" aria-hidden="true"></i>
+          </div>
+          <div class="col-sm bb">
+            <h1>3333</h1>
+            <p>Comptes</p>
+          </div>
+        </div> -->
+        </div>
+      </div>  
+        </div>
+    </div>  
+   

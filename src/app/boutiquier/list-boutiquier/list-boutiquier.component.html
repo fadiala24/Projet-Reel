@@ -1,0 +1,78 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<div class="page-wrapper">
+    
+    <div class="container-fluid">
+    <div class="row justify-content-center" style="margin: 0 auto;">
+        <!-- Mettre ici le contenu de la page -->
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <div class="d-md-flex mb-3">
+                        <div class="row col-md-12 col-lg-12 col-sm-12">
+                            <div class="row col-md-12 col-lg-12 col-sm-12">
+                                <h3 class="box-title mb-0">Liste des Boutiquiers</h3>								
+								<div >
+									<div class="btn-group" style="margin-left:85%; width: 20%;" > 
+										<a href="/addBoutiquier" id="addRow" class="btn btn-warning">
+											Ajouter  <i class="fa fa-plus"></i>
+										</a>
+									</div>
+								</div>	
+                                							
+                            </div>
+                            <div class="d-md-flex mb-3">
+                                <div class="row col-md-12 col-lg-12 col-sm-12">
+                                   
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <form role="search" >
+                                            <a href="" class="active">
+                                              
+                                            </a>
+                                            <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Rechercher..." class="form-control mt-0">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table no-wrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0"><b>#</b></th>
+                                    <th class="border-top-0"><b>Nom</b></th>
+                                    <th class="border-top-0"><b>PRENOM</b></th>
+                                    <th class="border-top-0"><b>LOGIN</b></th>
+									<th class="border-top-0"><b>PASSWORD</b></th>
+                                    <th class="border-top-0"><b>TELEPHONE</b></th>
+									<th class="border-top-0"><b>Action</b></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let liste of listeBoutiquier | filter:searchText | paginate : {itemsPerPage : 8, currentPage: p}">
+                                <tr *ngIf="liste.etat=='ACTIVER' " >
+                                    <td class="txt-oflo"></td>
+                                    <td class="txt-oflo">{{liste.nom}}</td>
+                                    <td class="txt-oflo">{{liste.prenom}}</td>
+									<td class="txt-oflo">{{liste.login}}</td>
+                                    <td class="txt-oflo">{{liste.password}}</td>
+                                    <td class="txt-oflo">{{liste.telephone}}</td>
+									
+                                    <td>
+                                        <span class="text-success alignement">
+                                            <a [routerLink]="['/updateBoutiquier', liste.id]"> <i class="fa fa-edit" aria-hidden="true"></i></a>&nbsp;
+                                            <a><i style="color: red;" class="fa fa-trash" aria-hidden="true"(click)="ckeickData(liste.id)"></i></a>&nbsp;
+                                            <a [routerLink]="['/detailBoutiquier', liste.id]" ><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <pagination-controls style="margin-left: 50%;" (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

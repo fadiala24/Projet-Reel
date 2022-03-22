@@ -1,0 +1,84 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center sous-header">
+            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-12">
+                <a [routerLink]="['/listAdmin']">
+                    <b>
+                        <i class="fas fa-chevron-left" style="font-weight: bold; font-size: 25px; color: #684f0e;"
+                            aria-hidden="true"></i>
+                    </b>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Information Personnelle</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex"></div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-12">
+                <div class="white-box">
+                    <div class="user-bg"> <img width="100%" >
+                        <div class="overlay-box">
+                            <div class="user-content">
+                                <!-- <a href="javascript:void(0)"><img src="{{photo}} + {{boutique?.id}}"
+                                        class="thumb-lg img-circle" alt="photo"></a>
+                                <h4 class="text-white mt-2"> BOUTIQUE {{boutique?.nom}}</h4> -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-btm-box mt-5 d-md-flex">
+                        <div class="col-md-6 col-sm-6 text-center">
+                            <button class="btn btn-orange" style="background-color: #2D6000; color: white;"
+                                [routerLink]="['/updateLocalite', detailLocalite?.id]">
+                                <i class="fa fa-edit" aria-hidden="true"></i> Modifier</button>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal form-material">
+                            <div class="form-group mb-4">
+                                <label class="col-md-12 p-0">LOCALITE</label>
+                                <div class="col-md-12 border-bottom p-0" style="color:#2D6000;"> {{detailLocalite?.libelle}}</div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="example-email" class="col-md-12 p-0">Type</label>
+                                <div class="col-md-12 border-bottom p-0" style="color:#2D6000;">
+                                    {{detailLocalite?.type}}</div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="example-email" class="col-md-12 p-0">Libelle</label>
+                                <div class="col-md-12 border-bottom p-0" style="color:#2D6000;">
+                                    {{detailLocalite?.libelle}}</div>
+                            </div>          
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+        </div>
+
+    </div>
+</div>

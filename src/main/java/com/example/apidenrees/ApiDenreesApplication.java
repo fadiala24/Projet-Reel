@@ -19,9 +19,10 @@ public class ApiDenreesApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
+
         // TODO Auto-generated method stub
         Administrateur administrateur = new Administrateur("Sidibe","Fadiala","fadialasidibe9@gmail.com","fad","fad123",Etat.ACTIVER,72120680, false);
-       adminServiceImpl.addAdmin(administrateur);
+       adminServiceImpl.ajout_administrateurs(administrateur);
     }
 
 }

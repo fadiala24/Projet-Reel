@@ -40,7 +40,7 @@ $topbar-shadow: 1px 0px 7px rgba(0, 0, 0, 0.05);
 }
 $topbar-mailbox-width: 300px;
 $topbar-mailbox-height: 317px;
-$topbar-droptitle-bg: url(../../assets/images/background/img5.png) no-repeat;
+$topbar-droptitle-bg: url(assets/images/background/img5.png) no-repeat;
 
 
 // ======================================================
@@ -276,12 +276,12 @@ $input-box-shadow: none !default; // 0 1px 3px 0 $gray-400 !default;
 $input-focus-box-shadow: none !default; //0 1px 3px 0 $gray-500 !default;
 
 $custom-control-indicator-active-bg: rgba(0, 0, 0, 35%) !default;
-$custom-select-indicator: url(../../assets/images/custom-select.png) !default;
+$custom-select-indicator: url(assets/images/custom-select.png) !default;
 
 $input-btn-focus-box-shadow: transparent !default;
 $custom-select-focus-box-shadow: transparent !default;
 $custom-select-indicator: str-replace(
-  url('../../assets/images/custom-select.png'),
+  url('assets/images/custom-select.png'),
   '%23'
 ) !default;
 $custom-control-indicator-box-shadow: none !default;

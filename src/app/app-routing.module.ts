@@ -21,6 +21,7 @@ import { DetailCategoryComponent } from './Category/detail-category/detail-categ
 import { ListCategoryComponent } from './Category/list-category/list-category.component';
 import { UpdateCategoryComponent } from './Category/update-category/update-category.component';
 import { CorbeilleComponent } from './corbeille/corbeille/corbeille.component';
+import { GuardGuard } from './Guard/guard.guard';
 import { LoginGuardGuard } from './Guard/login-guard.guard';
 import { AddlocaliteComponent } from './localite/addlocalite/addlocalite.component';
 import { DetaillocaliteComponent } from './localite/detaillocalite/detaillocalite.component';
@@ -37,42 +38,42 @@ import { UpdateProduitComponent } from './produit/update-produit/update-produit.
 const routes: Routes = [
 
  { path: '', component: LoginComponent,},
-  { path: 'login', component: LoginComponent, canActivate: [LoginGuardGuard]},
-  { path: 'accueil', component: AccueilComponent },
-  {path: 'listAdmin', component: ListAdminComponent},
-  {path: 'addAdmin', component: AddAdminComponent},
-  {path: 'updateAdmin/:id', component: UpdateAdminComponent},
-  {path: 'detailAdmin/:id', component: DetailAdminComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'accueil', component: AccueilComponent, canActivate: [GuardGuard] },
+  {path: 'listAdmin', component: ListAdminComponent, canActivate: [GuardGuard]},
+  {path: 'addAdmin', component: AddAdminComponent, canActivate: [GuardGuard]},
+  {path: 'updateAdmin/:id', component: UpdateAdminComponent, canActivate: [GuardGuard]},
+  {path: 'detailAdmin/:id', component: DetailAdminComponent, canActivate: [GuardGuard]},
 
-  {path: 'addBoutique', component: AddBoutiqueComponent},
-  {path: 'listBoutique', component: ListBoutiqueComponent},
-  {path: 'detailBoutique/:id', component: DetailBoutiqueComponent},
-  {path: 'updateBoutique/:id', component: UpdateBoutiqueComponent},
+  {path: 'addBoutique', component: AddBoutiqueComponent, canActivate: [GuardGuard]},
+  {path: 'listBoutique', component: ListBoutiqueComponent, canActivate: [GuardGuard]},
+  {path: 'detailBoutique/:id', component: DetailBoutiqueComponent, canActivate: [GuardGuard]},
+  {path: 'updateBoutique/:id', component: UpdateBoutiqueComponent, canActivate: [GuardGuard]},
 
-  {path: 'listBoutiqueAttente', component: BoutiqueAttenteComponent},
-  {path: 'AttenteDetail/:id', component: AttenteDetailComponent},
+  {path: 'listBoutiqueAttente', component: BoutiqueAttenteComponent, canActivate: [GuardGuard]},
+  {path: 'AttenteDetail/:id', component: AttenteDetailComponent, canActivate: [GuardGuard]},
 
-  {path: 'addProduit', component: AddProduitComponent},
-  {path: 'listProduit', component: ListProduitComponent},
-  {path: 'detailProduit/:id', component: DetailProduitComponent},
-  {path: 'updateProduit/:id', component: UpdateProduitComponent},
+  {path: 'addProduit', component: AddProduitComponent, canActivate: [GuardGuard]},
+  {path: 'listProduit', component: ListProduitComponent, canActivate: [GuardGuard]},
+  {path: 'detailProduit/:id', component: DetailProduitComponent, canActivate: [GuardGuard]},
+  {path: 'updateProduit/:id', component: UpdateProduitComponent, canActivate: [GuardGuard]},
 
-  {path: 'addBoutiquier', component: AddBoutiquierComponent},
-  {path: 'listBoutiquier', component: ListBoutiquierComponent},
-  {path: 'detailBoutiquier/:id', component: DetailBoutiquierComponent},
-  {path: 'updateBoutiquier/:id', component: UpdateBoutiquierComponent},
+  {path: 'addBoutiquier', component: AddBoutiquierComponent, canActivate: [GuardGuard]},
+  {path: 'listBoutiquier', component: ListBoutiquierComponent, canActivate: [GuardGuard]},
+  {path: 'detailBoutiquier/:id', component: DetailBoutiquierComponent, canActivate: [GuardGuard]},
+  {path: 'updateBoutiquier/:id', component: UpdateBoutiquierComponent, canActivate: [GuardGuard]},
 
-  {path: 'addCategorie', component: AddCategoryComponent},
-  {path: 'listCategorie', component: ListCategoryComponent},
-  {path: 'detailCategorie/:id', component: DetailCategoryComponent},
-  {path: 'updateCategorie/:id', component: UpdateCategoryComponent},
+  {path: 'addCategorie', component: AddCategoryComponent, canActivate: [GuardGuard]},
+  {path: 'listCategorie', component: ListCategoryComponent, canActivate: [GuardGuard]},
+  {path: 'detailCategorie/:id', component: DetailCategoryComponent, canActivate: [GuardGuard]},
+  {path: 'updateCategorie/:id', component: UpdateCategoryComponent, canActivate: [GuardGuard]},
 
-  {path: 'addLocalite', component: AddlocaliteComponent},
-  {path: 'listLocalite', component: ListlocaliteComponent},
-  {path: 'detailLocalite/:id', component: DetaillocaliteComponent},
-  {path: 'updateLocalite/:id', component: UpdatelocaliteComponent},
+  {path: 'addLocalite', component: AddlocaliteComponent, canActivate: [GuardGuard]},
+  {path: 'listLocalite', component: ListlocaliteComponent, canActivate: [GuardGuard]},
+  {path: 'detailLocalite/:id', component: DetaillocaliteComponent, canActivate: [GuardGuard]},
+  {path: 'updateLocalite/:id', component: UpdatelocaliteComponent, canActivate: [GuardGuard]},
 
-  {path: 'corbeille', component: CorbeilleComponent},
+  {path: 'corbeille', component: CorbeilleComponent, canActivate: [GuardGuard]},
 
 
 

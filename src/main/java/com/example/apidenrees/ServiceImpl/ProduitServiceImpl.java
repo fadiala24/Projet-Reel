@@ -85,6 +85,7 @@ public class ProduitServiceImpl implements ProduitService {
         produitExistant.setPrix_unitaire(produits.getPrix_unitaire());
         produitExistant.setBoutiques(produits.getBoutiques());
         produitExistant.setCategory(produits.getCategory());
+        produitExistant.setPrix_achat(produits.getPrix_achat());
         return " Produits modifié avec succes";
     }
 

@@ -50,7 +50,8 @@ public class ClientServiceImpl implements ClientService {
         clientExistant.setPrenom(client.getPrenom());
         clientExistant.setLogin(client.getLogin());
         clientExistant.setPassword(client.getPassword());
-        clientExistant.setTelephone(clientExistant.getTelephone());
+        clientExistant.setTelephone(client.getTelephone());
+        clientExistant.setEtat(client.getEtat());
         return "Client modifié avec succes";
     }
 

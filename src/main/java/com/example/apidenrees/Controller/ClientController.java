@@ -29,6 +29,15 @@ public class ClientController {
         return clientServiceImpl.valid(client);
     }
 
+    @GetMapping("/desactiverClient/{id}")
+    public void desactiverClient(@PathVariable("id") Long id) {
+        this.clientServiceImpl.desactiverClient(id);
+    }
+
+    @GetMapping("/activerClient/{id}")
+    public void activerClient(@PathVariable("id") Long id) {
+        this.clientServiceImpl.activerClient(id);
+    }
     // ******************** Liste des Clients
 
     @GetMapping("/listClient")

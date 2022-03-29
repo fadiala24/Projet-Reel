@@ -2,6 +2,7 @@ package com.example.apidenrees.ServiceImpl;
 
 import com.example.apidenrees.Etat;
 import com.example.apidenrees.Model.Administrateur;
+import com.example.apidenrees.Model.Boutiques;
 import com.example.apidenrees.Model.Boutiquier;
 import com.example.apidenrees.Model.Client;
 import com.example.apidenrees.Repositories.ClientRepository;
@@ -59,7 +60,17 @@ public class ClientServiceImpl implements ClientService {
         Client client = clientRepository.findById(id).get();
         return "Vous avez supprimer le Client : "+client.getNom()+" "+client.getPrenom();
     }
+    @Override
+    public void activerClient(Long id){
+        Client client=clientRepository.findById(id).get();
+        client.setEtat(Etat.ACTIVER);
+    }
 
+    @Override
+    public void desactiverClient(Long id){
+        Client client=clientRepository.findById(id).get();
+        client.setEtat(Etat.DESACTIVER);
+    }
     @Override
     public String modifier_client(Client client, Long id) {
         Client clientExistant = this.clientRepository.findById(id).get();

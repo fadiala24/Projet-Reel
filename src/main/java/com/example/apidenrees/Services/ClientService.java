@@ -17,4 +17,6 @@ public interface ClientService {
     public Client modifyPassword(Long id, String ancien, String nouveau);
     //Authentification
     Client findByLoginAndPassword(String login, String password);
+    public void activerClient(Long id);
+    public void desactiverClient(Long id);
 }

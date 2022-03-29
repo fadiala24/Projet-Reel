@@ -1,16 +1,17 @@
 package com.example.apidenrees.ServiceImpl;
 
 import com.example.apidenrees.Etat;
-import com.example.apidenrees.Model.Administrateur;
-import com.example.apidenrees.Model.Boutiques;
-import com.example.apidenrees.Model.Boutiquier;
-import com.example.apidenrees.Model.Client;
+import com.example.apidenrees.Model.*;
 import com.example.apidenrees.Repositories.ClientRepository;
 import com.example.apidenrees.Services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,12 +21,16 @@ public class ClientServiceImpl implements ClientService {
        @Autowired
     ClientRepository clientRepository;
 
-
     @Override
-    public String aujout_client(Client client) {
-        clientRepository.save(client);
-        return "Ajout effectué avec succes";
+    public Client ajout_Client(Client client, @RequestParam("image") MultipartFile multipartFile) throws IOException {
+        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        client.setPhoto(fileName);
+        Client savedClient = clientRepository.save(client);
+        String uploadDir = "src/main/resources/Client/" + savedClient.getId();
+        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        return savedClient;
     }
+
     @Override
     public String valid (Client client){
         Optional<Client>ClientTelephone = clientRepository.findByTelephone(client.getTelephone());

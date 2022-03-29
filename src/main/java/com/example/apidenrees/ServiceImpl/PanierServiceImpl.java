@@ -1,5 +1,7 @@
 package com.example.apidenrees.ServiceImpl;
 
+import com.example.apidenrees.Etat;
+import com.example.apidenrees.Model.Client;
 import com.example.apidenrees.Model.Panier;
 import com.example.apidenrees.Model.Produits;
 import com.example.apidenrees.Repositories.PanierRepository;
@@ -26,7 +28,17 @@ public class PanierServiceImpl implements PanierService {
         return panierRepository.findAll();
     }
    //  -----------------ici ---------------------------------
+   @Override
+   public void activerPanier(Long id){
+       Panier panier=panierRepository.findById(id).get();
+       panier.setStatut(Etat.ACTIVER);
+   }
 
+    @Override
+    public void desactiverPanier(Long id){
+        Panier panier=panierRepository.findById(id).get();
+        panier.setStatut(Etat.DESACTIVER);
+    }
     public void ajout_panier(Panier panier) {
         this.panierRepository.save(panier);
     }

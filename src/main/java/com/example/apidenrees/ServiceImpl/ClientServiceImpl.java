@@ -60,17 +60,8 @@ public class ClientServiceImpl implements ClientService {
         Client client = clientRepository.findById(id).get();
         return "Vous avez supprimer le Client : "+client.getNom()+" "+client.getPrenom();
     }
-    @Override
-    public void activerClient(Long id){
-        Client client=clientRepository.findById(id).get();
-        client.setEtat(Etat.ACTIVER);
-    }
 
-    @Override
-    public void desactiverClient(Long id){
-        Client client=clientRepository.findById(id).get();
-        client.setEtat(Etat.DESACTIVER);
-    }
+
     @Override
     public String modifier_client(Client client, Long id) {
         Client clientExistant = this.clientRepository.findById(id).get();

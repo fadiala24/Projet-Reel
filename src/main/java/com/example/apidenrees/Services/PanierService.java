@@ -13,5 +13,7 @@ public interface PanierService {
     public Panier ajout_panierr(Panier panier);
     public void ajouterPrixUnitaire(Panier panier, Double prix_uni);
     public Double produit_prix(Panier prod);
+    public void desactiverPanier(Long id);
+    public void activerPanier(Long id);
 
 }

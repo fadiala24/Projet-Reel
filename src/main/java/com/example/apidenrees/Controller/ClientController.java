@@ -7,6 +7,7 @@ import com.example.apidenrees.Model.Client;
 import com.example.apidenrees.ServiceImpl.ClientServiceImpl;
 import com.example.apidenrees.Services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -69,5 +70,10 @@ public class ClientController {
     @GetMapping("/authentificationClient/{login}&{password}")
     public Client connexion(@PathVariable("login") String login, @PathVariable("password") String password) {
         return clientServiceImpl.findByLoginAndPassword(login, password);
+    }
+    @GetMapping(value = "addPhoto/{idClient}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    public byte[] getpHOTO(@PathVariable("idClient") Long Id) throws IOException {
+        return clientService.getpHOTO(Id);
+
     }
 }

@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -92,6 +96,16 @@ public class ClientServiceImpl implements ClientService {
             return client;
         }
 
+    }
+
+
+    @Override
+    public byte[] getpHOTO(Long Id) throws IOException {
+        Client trv = clientRepository.findById(Id).get();
+        String iconPhoto = trv.getPhoto();
+        File file = new File("src/main/resources/Client/"+ trv.getId() +"/" +iconPhoto);
+        Path path = Paths.get(file.toURI());
+        return Files.readAllBytes(path);
     }
 
     @Override

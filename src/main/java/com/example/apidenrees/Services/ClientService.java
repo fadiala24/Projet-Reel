@@ -18,6 +18,7 @@ public interface ClientService {
     public String supprimer_client(Long id);
     public String modifier_client(Client client, Long id);
     public Client modifyPassword(Long id, String ancien, String nouveau);
+    public byte[] getpHOTO(Long Id) throws IOException;
     //Authentification
     Client findByLoginAndPassword(String login, String password);
 

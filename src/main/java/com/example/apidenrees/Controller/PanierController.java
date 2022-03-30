@@ -23,6 +23,7 @@ public class PanierController {
     public List<Panier>  getListPanier() {
         return panierService.listPanier();
     }
+
     @PostMapping("/addPanier")
     public void panierList(@RequestBody Panier panier){
         this.panierService.ajout_panier(panier);

@@ -103,6 +103,17 @@ public class Administrateur {
     public Administrateur() {
     }
 
+    public Administrateur(String nom, String prenom, String email, String login, String password, Etat etat, int telephone, Boolean supprimer) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.login = login;
+        this.password = password;
+        this.etat = etat;
+        this.telephone = telephone;
+        this.supprimer = supprimer;
+    }
+
     public Long getId() {
         return id;
     }

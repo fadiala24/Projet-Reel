@@ -16,7 +16,8 @@ public class Panier {
     private LocalDate date_creation = LocalDate.now();
     private LocalTime heure_creation = LocalTime.now();
     private int quantite;
-    private Etat statut = Etat.ACTIVER;
+    @Enumerated(EnumType.STRING)
+    private Etat statut = Etat.ENCOURS;
 
     public int getQuantite() {
         return quantite;

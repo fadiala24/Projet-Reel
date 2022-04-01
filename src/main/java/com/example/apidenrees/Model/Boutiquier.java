@@ -14,12 +14,9 @@ public class Boutiquier {
     private Long id;
     private String prenom;
 
-
     private int telephone;
 
-
     private String login;
-
 
     private String password;
 
@@ -35,7 +32,7 @@ public class Boutiquier {
 
     @Column(nullable = true)
     @Enumerated(EnumType.STRING)
-    private Etat etat = Etat.ACTIVER;
+    private Etat etat;
 
     @JsonIgnore
     @OneToMany(mappedBy = "boutiquier")

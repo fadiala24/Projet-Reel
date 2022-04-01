@@ -16,6 +16,15 @@ public class Client {
     private String login;
     private String password;
     private int telephone;
+    private String photo;
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
     public Etat getEtat() {
         return etat;

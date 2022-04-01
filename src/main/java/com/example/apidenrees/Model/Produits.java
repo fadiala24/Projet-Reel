@@ -1,6 +1,7 @@
 package com.example.apidenrees.Model;
 
 import com.example.apidenrees.Etat;
+import com.example.apidenrees.Unite;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.mapping.Collection;
 
@@ -13,16 +14,16 @@ public class Produits {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-
+    @Column(nullable = true)
     @Enumerated(EnumType.STRING)
-    private Etat etat = Etat.ACTIVER;
+    private Etat etat;
+    @Enumerated(EnumType.STRING)
+    private Unite unite ;
 
     private String nom;
-
     private Double prix_achat;
 
     private int quantite;
-
     private Boolean supprimer = false;
     private Double prix_unitaire;
     private String photos;
@@ -30,6 +31,14 @@ public class Produits {
     private Category category;
     @ManyToOne
     private Boutiques boutiques;
+
+    public Unite getUnite() {
+        return unite;
+    }
+
+    public void setUnite(Unite unite) {
+        this.unite = unite;
+    }
 
     public Boolean getSupprimer() {
         return supprimer;

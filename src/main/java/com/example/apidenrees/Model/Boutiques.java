@@ -17,7 +17,6 @@ public class Boutiques {
     private String nom;
     private String photo;
 
-
     private String latitude;
 
     private String longitude;

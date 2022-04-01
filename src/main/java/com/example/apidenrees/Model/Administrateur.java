@@ -15,13 +15,19 @@ public class Administrateur {
     private String nom;
 
     private String prenom;
+
+
     private String email;
+
     private String login;
+
     private String password;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Etat etat;
+
+    @Column(nullable = false, unique = true)
     private int telephone;
 
     private Boolean supprimer = false;
@@ -95,17 +101,6 @@ public class Administrateur {
     }
 
     public Administrateur() {
-    }
-
-    public Administrateur(String nom, String prenom, String email, String login, String password, Etat etat, int telephone, Boolean supprimer) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.email = email;
-        this.login = login;
-        this.password = password;
-        this.etat = etat;
-        this.telephone = telephone;
-        this.supprimer = supprimer;
     }
 
     public Long getId() {

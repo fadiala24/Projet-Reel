@@ -2,12 +2,17 @@ package com.example.apidenrees.Controller;
 
 import com.example.apidenrees.Model.Administrateur;
 import com.example.apidenrees.Model.Boutiquier;
+import com.example.apidenrees.Model.Category;
 import com.example.apidenrees.Model.Client;
 import com.example.apidenrees.ServiceImpl.ClientServiceImpl;
+import com.example.apidenrees.Services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BandCombineOp;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -17,13 +22,20 @@ public class ClientController {
     @Autowired
     ClientServiceImpl clientServiceImpl;
 
+    @Autowired
+    ClientService clientService;
+
     // ***************  Ajout d'un Client***************
 
     @PostMapping("/addClient")
-    public String saveClient(@RequestBody Client client){
-        return clientServiceImpl.aujout_client(client);
+    public Client saveClient(Client client, @RequestParam("image") MultipartFile multipartFile) throws IOException {
+        return clientService.ajout_Client(client, multipartFile);
     }
 
+    @PostMapping("/validClient")
+    public String validClient(@RequestBody Client client) {
+        return clientServiceImpl.valid(client);
+    }
     // ******************** Liste des Clients
 
     @GetMapping("/listClient")
@@ -58,5 +70,10 @@ public class ClientController {
     @GetMapping("/authentificationClient/{login}&{password}")
     public Client connexion(@PathVariable("login") String login, @PathVariable("password") String password) {
         return clientServiceImpl.findByLoginAndPassword(login, password);
+    }
+    @GetMapping(value = "addPhoto/{idClient}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    public byte[] getpHOTO(@PathVariable("idClient") Long Id) throws IOException {
+        return clientService.getpHOTO(Id);
+
     }
 }

@@ -32,7 +32,7 @@ public class Boutiquier {
 
     @Column(nullable = true)
     @Enumerated(EnumType.STRING)
-    private Etat etat;
+    private Etat etat= Etat.ACTIVER;
 
     @JsonIgnore
     @OneToMany(mappedBy = "boutiquier")

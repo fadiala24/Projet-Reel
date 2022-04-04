@@ -18,7 +18,7 @@ public class Category {
     private Boolean supprimer = false;
     @Column(nullable = true)
     @Enumerated(EnumType.STRING)
-    private Etat etat;
+    private Etat etat= Etat.ACTIVER;
     @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<Produits> produits;

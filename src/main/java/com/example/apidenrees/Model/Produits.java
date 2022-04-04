@@ -16,7 +16,8 @@ public class Produits {
     private Long id;
     @Column(nullable = true)
     @Enumerated(EnumType.STRING)
-    private Etat etat;
+    private Etat etat = Etat.ACTIVER;
+
     @Enumerated(EnumType.STRING)
     private Unite unite ;
 

@@ -25,7 +25,7 @@ public class Administrateur {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Etat etat;
+    private Etat etat = Etat.ACTIVER;
 
     @Column(nullable = false, unique = true)
     private int telephone;

@@ -91,6 +91,7 @@ export class AddProduitComponent implements OnInit {
         'nom': form.value['nom'], 'quantite': form.value['quantite'],
         'prix_unitaire': form.value['prix_unitaire'],
         'prix_achat': form.value['prix_achat'],
+        'unite': form.value['unite'],
       }
       console.log(this.services)
       this.service.validProduit(this.services).subscribe((data1: any) => {
@@ -98,19 +99,23 @@ export class AddProduitComponent implements OnInit {
 
         if (data1 === "nom") {
           console.log("incorrect nom");
-          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'nom existe déja' });
-
-        } else
-          if (data1 === "latitude") {
-            console.log("incorrect latitude");
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'latitude existe déja' });
-          }
-
-          else
-            if (data1 === "longitude") {
-              console.log("incorrect longitude");
-              this.messageService.add({ severity: 'error', summary: 'Error', detail: 'longitude existe déja' });
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
+          })
+          
+          Toast.fire({
+            icon: 'error',
+            title: 'nom existe déja !!! '
+          })
+        } 
             else {
 
               this.service.addProduit(this.services, this.photo[0]).subscribe((data: any) => {
@@ -125,7 +130,7 @@ export class AddProduitComponent implements OnInit {
                       'quantite': form.value['quantite'],
                       'prix_unitaire': form.value['prix_unitaire'],
                       'prix_achat': form.value['prix_achat'],
-                      
+                      'unite': form.value['unite'],
                       'photo': this.photo[0].name,
                       'category': JSON.parse(this.cateId),
                       'boutiques': JSON.parse(this.boutiqId),

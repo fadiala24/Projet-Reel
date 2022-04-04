@@ -1,0 +1,96 @@
+<app-header></app-header>
+<app-menu></app-menu>
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center sous-header">
+            <div class="row col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-lg-4 col-sm-4 col-md-6 col-xs-12">
+                    <a href="listLocalite">
+                     <i class="fas fa-chevron-left" style="font-weight: bold; font-size: 25px; color: #684f0e;" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="col-lg-8 col-sm-8 col-md-8 col-xs-12" style="float: left;">
+                    <h4 class="page-title">Modification LOCALITE</h4>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex"> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+    <div class="row justify-content-center" style="margin: 0 auto;">
+
+        <div class="col-lg-12 col-xlg-12 col-md-12"></div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-12 col-xlg-3 col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form #UpdateForm="ngForm" novalidate="novalidate" autocomplete="off" class="form-horizontal form-material">
+                            <div class="form-row" >
+                                <div class="form-group mb-4 col-md-6">
+                                    <label for="type" class="col-md-12 p-0">Type </label>
+                                    <div class="col-md-10 border-bottom p-0">
+                                        <select id="type" placeholder="Choisir un type" class="form-control p-0 border-0" name="type"  [(ngModel)]="Type"  [(ngModel)]="services.type" required>
+                                            <option value="Ville">Ville</option>
+                                            <option value="Quartier">Quartier</option>                                         
+                                        </select>
+                                        <!-- <div [hidden]="type.valid || type.pristine" class="alert alert-danger">
+                                            Le Type est obligatoire
+                                        </div> -->
+                                    </div>
+                                </div>                     
+                            <div class="form-group mb-4 col-md-6">
+                                <label class="col-md-12 p-0">Libelle </label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <input type="text" placeholder="Saisissez un libelle"
+                                                class="form-control p-0 border-0" name="libelle"  [(ngModel)]="services.libelle" required>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="form-row" >
+                            
+                            <div class="form-group mb-4 col-md-6">
+                                <label class="col-md-12 p-0">Etat </label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <select  class="form-control p-0 border-0" name="etat" [(ngModel)]="services.etat"  required>
+                            <option value="true" >Activer</option>
+                            <option value="false" >Désactiver</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group mb-4 col-md-6" *ngIf="Type=='Quartier' ">
+                                <label class="col-md-12 p-0">Parent </label>
+                                <div class="col-md-12 border-bottom p-0">
+                                    <select  placeholder="Choisir une Parent" class="form-control p-0 border-0" name="parent" ngModel  required>
+                                        <option ></option>
+                                        <option *ngFor="let par of loc" value="{{par.id}}">{{par.libelle}}
+                                        </option>
+                                    </select>
+                                   
+                                </div>
+                            </div>
+                        </div>                          
+                            <div class="form-group mb-6">
+                                <div class="col-sm-12 align-button">
+                                    <button type="submit" class="btn btn-success me-5" (click)="onUpdate()">Mordifier</button>
+                                     <button type="reset" class="btn btn-warning ms-5" routerLink="/listLocalite">Retour</button>
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xlg-3 col-md-12"></div>
+    </div>
+</div>
+</div>
+
+

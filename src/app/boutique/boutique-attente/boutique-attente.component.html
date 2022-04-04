@@ -1,0 +1,72 @@
+<app-header></app-header>
+<app-menu></app-menu>
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center sous-header">
+            <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">BOUTIQUES EN ATTENTE</h4>
+            </div>
+            <div class="col-lg-6 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+    <div class="row justify-content-center" style="margin: 0 auto;">
+        <!-- Mettre ici le contenu de la page -->
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <div class="d-md-flex mb-3">
+                        <div class="row col-md-12 col-lg-12 col-sm-12">
+                            <div class="col-md-6 col-lg-6 col-sm-6">
+                                <h3 class="box-title mb-0">EN ATTENTE</h3>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-sm-6">
+                                <form role="search" >
+                                    <a href="" class="active">
+                                      
+                                    </a>
+                                    <input type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Rechercher..." class="form-control mt-0">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table no-wrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0"><b>#</b></th>
+                                    <th class="border-top-0"><b>Nom</b></th>
+                                    <th class="border-top-0"><b>Latitude</b></th>
+                                    <th class="border-top-0"><b>Lontitude</b></th>
+                                    <th class="border-top-0"><b>Quartier</b></th>
+                                    <th class="border-top-0"><b>Nom du Boutiquier</b></th>
+									<th class="border-top-0"><b>Action</b></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let liste of boutiqueAttente| filter:searchText| paginate : {itemsPerPage : 5, currentPage: p}">
+                                    <td class="txt-oflo"><img src="{{photo}} + {{liste.id}}" style="height: 25px;"></td>
+                                    <td class="txt-oflo">{{liste.nom}}</td>
+                                    <td class="txt-oflo">{{liste.latitude}}</td>
+									<td class="txt-oflo">{{liste.longitude}}</td>
+									<td class="txt-oflo">{{liste.quartier.libelle}}</td>
+                                    <td class="txt-oflo">{{liste.boutiquier.prenom}} {{liste.boutiquier.nom}}</td>
+                                    <td>
+                                        <span class="text-success alignement">
+                                            <a [routerLink]="['/AttenteDetail', liste.id]"><i style="color: #03224c;" class="fas fa-info-circle" aria-hidden="true"></i></a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <pagination-controls style="margin-left: 50%;" (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

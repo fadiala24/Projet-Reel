@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <img class="logo" src="assets/images/suma.png" alt="logo">
+    <ion-buttons slot="end">
+      <ion-button color="dark" id="pop2">
+        <ion-icon name="person-circle-outline" slot="end" size="large"></ion-icon>
+        <ion-popover mode="ios" trigger="pop2" [dismissOnSelect]="true">
+          <ng-template>
+            <ion-list>
+              <ion-item button (click)="test()">
+                <ion-label>Espace client</ion-label>
+              </ion-item>
+              <ion-item button (click)="test1()">
+                <ion-label>Espace boutiquier</ion-label>
+              </ion-item>
+            </ion-list>
+          </ng-template>
+        </ion-popover>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+    <ion-slide>
+      <img src="assets/images/fadios_2jpg.png" alt="slide2">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/images/fadios_3.png" alt="slide3">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/images/fadios_4.png" alt="slide4">
+    </ion-slide>
+  </ion-slides>
+</ion-header>
+<ion-content [fullscreen]="true">
+   <div class="cat">
+    <p><span>|</span>Les villes</p>
+  </div>
+  <ion-row>
+    <ion-col *ngFor="let l of liste" class="ion-align-self-center" size="6" size-sm>
+     <button *ngIf="l.type == 'Ville'" [routerLink]="['/boutiques-ville', l.id]" >{{l.libelle}}</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

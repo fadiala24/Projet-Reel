@@ -1,0 +1,33 @@
+{
+    "properties": [
+        {
+            "city": "Mille et une Merveille",
+            "state": "Bamako",
+            "long": -8.0304374,
+            "lat": 12.630432
+        },
+        {
+            "city": "Végétables shop",
+            "state": "Bamako",
+            "long": -8.0370035,
+            "lat": 12.6304996
+        },
+        {
+            "city": "Diarra et Frère",
+            "state": "MA",
+            "long": -8.0416558,
+            "lat": 12.6449635
+        },
+        {
+            "city": "Guinta Boutique",
+            "long": -7.583568,
+            "lat": 12.6120423
+        },
+
+        {
+            "city": "Caliprix",
+            "long": -8.0381353,
+            "lat": 12.6372963
+        }
+    ]
+}

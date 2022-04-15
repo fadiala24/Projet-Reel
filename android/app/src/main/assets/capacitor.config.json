@@ -1,0 +1,26 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "sumaApp1",
+	"webDir": "www",
+	"bundledWebRuntime": false,
+	"plugins": {
+		"SplashScreen": {
+			"launchAutoHide": false,
+			"showSpinner": true,
+			"androidSpinnerStyle": "small",
+			"splashImmersive": false,
+			"spinnerColor": "#69E97A"
+		}
+	},
+	"cordova": {
+		"preferences": {
+			"ScrollEnabled": "false",
+			"BackupWebStorage": "none",
+			"SplashMaintainAspectRatio": "true",
+			"FadeSplashScreenDuration": "300",
+			"SplashShowOnlyFirstTime": "false",
+			"SplashScreen": "screen",
+			"SplashScreenDelay": "3000"
+		}
+	}
+}

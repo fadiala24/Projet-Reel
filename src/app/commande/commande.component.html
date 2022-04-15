@@ -1,0 +1,18 @@
+<ion-toolbar>
+  <ion-buttons slot="end">
+    <ion-button (click)="dismiss()">
+      <ion-icon slot="icon-only" name="close" color="dark"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content padding>
+  <div class="info">
+    <ion-img src="{{photo}} + {{det.id}}"></ion-img>
+    <p><b>Produit : </b>{{det.produits.nom}}</p>
+    <p><b>Quantité : </b>{{det.quantite}} {{det.produits.unite}}</p>
+    <p><b>Prix : </b>{{det.prix_unitaire}} FCFA</p>
+    <p><b>Date : </b>{{det.date_creation}}</p>
+    <p><b>Boutique : </b>{{det.produits.boutiques.nom}}</p>
+  </div>
+</ion-content>

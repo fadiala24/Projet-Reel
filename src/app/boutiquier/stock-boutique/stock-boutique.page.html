@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text="Retour" color="dark"></ion-back-button>
+    </ion-buttons>
+    <img class="logo" src="assets/images/suma.png" alt="logo">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="table-responsive">
+    <ion-toolbar style="--background: #F4F4F4F4; display: flex;">
+      <h3>Mes Stocks</h3>
+      <ion-button class="bout1" color="success" [routerLink]="['/ajout-stock', this.id]">AJOUTER</ion-button>
+   </ion-toolbar>
+    <table class="table no-wrap">
+        <thead>
+            <tr>
+                <th class="border-top-0"><b>#</b></th>
+                <th class="border-top-0"><b>Nom</b></th>
+                <th class="border-top-0"><b>Action</b></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of produit">
+                <td class="txt-oflo">{{p.id}}</td>
+                <td  class="txt-oflo">{{p.nom}}</td>
+                <td>
+                  <span>
+                      <a [routerLink]="['/modifier-stock', p.id]"><ion-icon name="create-outline" color="success"></ion-icon>
+                      </a>&nbsp;
+                      <a><ion-icon name="trash-outline" color="danger" (click)="presentConfirm(p.id)"></ion-icon></a>&nbsp;
+                      <a (click)="settings1(p.id)" ><ion-icon name="information-circle-outline" color="dark"></ion-icon></a>
+                  </span>
+              </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</ion-content>

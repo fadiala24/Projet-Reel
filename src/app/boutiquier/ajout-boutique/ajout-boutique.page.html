@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text="Retour" color="dark"></ion-back-button>
+    </ion-buttons>
+    <img class="logo" src="assets/images/suma.png" alt="logo">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h4>Formulaire d'ajout</h4>
+
+  <form #form="ngForm" (ngSubmit)="ajoutService(form)" autocomplete="off">
+    <ion-item>
+      <ion-input type="text" name="nom" id="nom" [(ngModel)]="form.nom" #nom="ngModel" maxlength="30" minlength="3" ngModel required></ion-input>
+    </ion-item>
+    <span *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert">
+      <small *ngIf="nom.errors?.['required']">
+        Le nom est obligatoire
+      </small>
+      <small *ngIf="login.errors?.['minlength']">
+        Le nom doit être au moins 3 caractères
+      </small>
+    </span>
+    <ion-item>
+      <ion-input type="text" name="boutiquier" id="boutiquier" [(ngModel)]="form.boutiquier" #boutiquier="ngModel" value={{user.id}} placeholder="{{user.prenom}} {{user.nom}}" ngModel disabled></ion-input>
+    </ion-item>
+    <span *ngIf="boutiquier.invalid && (boutiquier.dirty || boutiquier.touched)" class="alert">
+      <small *ngIf="boutiquier.errors?.['required']">
+        Le boutiquier est obligatoire
+      </small>
+    </span>
+    <ion-item>
+      <ion-label>Ville</ion-label>
+      <ion-select mode="ios" id="myVille" name="ville" [ngModel]="VilleId" (ngModelChange)="onChangeObj($event)" required>
+        <ion-select-option [ngValue]="v.id" *ngFor="let v of ville" value={{v.id}}>{{v.libelle}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quartier</ion-label>
+      <ion-select mode="ios" name="quartier" ngModel required>
+        <ion-select-option *ngFor="let q of quartier"  value={{q.id}}>{{q.libelle}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" value="{{longitude}}" name="longitude" ngModel required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" value="{{latitude}}" name="latitude" ngModel required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input #photos type="file" accept=".jpg, .png" name="photo" id="photo" [(ngModel)]="form.photo" #photo="ngModel" (change)="view($event)" ngModel required></ion-input>
+    </ion-item>
+    <span *ngIf="photo.invalid && (photo.dirty || photo.touched)" class="alert">
+      <small *ngIf="photo.errors?.['required']">
+        La photo est obligatoire
+      </small>
+    </span>
+   <div>
+    <ion-button type="submit" color="success">AJOUTER</ion-button>
+   </div>
+</form>
+</ion-content>

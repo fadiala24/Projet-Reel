@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text="Retour" color="dark"></ion-back-button>
+    </ion-buttons>
+    <img class="logo" src="assets/images/suma.png" alt="logo">
+    <ion-buttons slot="end">
+      <ion-button color="dark" id="pop7">
+        <ion-icon name="person-circle-outline" slot="end" size="large"></ion-icon>
+        <ion-popover mode="ios" trigger="pop7" [dismissOnSelect]="true">
+          <ng-template>
+            <ion-list>
+              <ion-item button (click)="test()">
+                <ion-label>Espace client</ion-label>
+              </ion-item>
+              <ion-item button (click)="test1()">
+                <ion-label>Espace boutiquier</ion-label>
+              </ion-item>
+            </ion-list>
+          </ng-template>
+        </ion-popover>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+    <!-- <ion-slide>
+      <img src="assets/images/fadios_1.png" alt="slide1">
+    </ion-slide> -->
+    <ion-slide>
+      <img src="assets/images/fadios_2jpg.png" alt="slide2">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/images/fadios_3.png" alt="slide3">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/images/fadios_4.png" alt="slide4">
+    </ion-slide>
+  </ion-slides>
+
+  <div class="search">
+    <span class="cat">
+      <p *ngIf="bout">{{bout.nom}}</p>
+    </span>
+    <ion-searchbar mode="ios" placeholder="Rechercher" [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+  </div>
+</ion-header>
+
+<ion-content>
+ 
+
+  <ion-row>
+    <ion-col *ngFor="let l of liste | filter:filterTerm | paginate: { itemsPerPage: 4, currentPage: cp }" (click)="settings(l)" class="ion-align-self-center" size="6" size-sm>
+     <div>
+      <ion-img  src="{{photo}} + {{l.id}}"></ion-img>
+      <ion-card-title>{{l.nom}}</ion-card-title>
+      <ion-card-title>{{l.prix_unitaire}} FCFA / {{l.unite}}</ion-card-title>
+     </div>
+    </ion-col>
+  </ion-row>
+  <div class="pg">
+    <pagination-controls (pageChange)="cp = $event" previousLabel="" nextLabel=""></pagination-controls>
+  </div>
+</ion-content>

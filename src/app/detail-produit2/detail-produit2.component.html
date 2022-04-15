@@ -1,0 +1,21 @@
+<ion-toolbar>
+  <ion-buttons slot="end">
+    <ion-button (click)="dismiss()">
+      <ion-icon slot="icon-only" name="close" color="dark"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content padding>
+  <div class="info">
+    <ion-img src="{{photo}} + {{det.id}}"></ion-img>
+    <p><b>Nom : </b> {{det.nom}}</p>
+    <p><b>Prix : </b>{{det.prix_unitaire}} FCFA / {{det.unite}}</p>
+    <p><b>Localité : </b>{{det.boutiques.quartier.libelle}}</p>
+    <p><b>Boutique : </b>{{det.boutiques.nom}}</p>
+  </div>
+  <div class="opt">
+    <ion-icon name="call-outline" size="large" (click)="appel()"></ion-icon>
+    <ion-icon name="cart-outline" size="large" (click)="settings(det)"></ion-icon>
+  </div>
+</ion-content>

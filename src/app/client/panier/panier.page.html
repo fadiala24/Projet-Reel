@@ -1,0 +1,38 @@
+<ion-toolbar>
+  <ion-buttons slot="end">
+    <ion-button (click)="dismiss()">
+      <ion-icon slot="icon-only" name="close" color="dark"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content>
+  <h4>COMMANDE</h4>
+
+  <form #form="ngForm" (ngSubmit)="ajout(form)">
+    <ion-item>
+      <ion-input disabled value="{{det.nom}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input disabled value="{{det.prix_unitaire}} FCFA / {{det.unite}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Quantité</ion-label>
+     <div style="display: flex;">
+      <ion-input style="width: 50%;" type="number" name="quantite" autocomplete="none" required ngModel></ion-input>
+      <ion-input style="width: 50%;" disabled required value="{{det.unite}}"></ion-input>
+     </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Option de payment</ion-label>
+      <ion-select mode="ios" name="option" ngModel required>
+        <ion-select-option value="livraison">A la livraison</ion-select-option>
+        <ion-select-option value="orange">OrangeMoney</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="form.value.option == 'orange'">
+      <ion-input type="tel" required name="orange" ngModel  pattern="[7-8]{1}[0-9]{7}" minlength="8" maxlength="8"></ion-input>
+    </ion-item>
+    <ion-button type="submit" color="success">VALIDER</ion-button>
+  </form>
+</ion-content>

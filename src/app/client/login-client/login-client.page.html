@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text="Retour" color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <img src="assets/images/suma.png" alt="suma">
+  </div>
+  <h4>BIENVENUE</h4>
+
+  <form #form="ngForm" (ngSubmit)="logForm(form.value)">
+    <ion-item>
+      <ion-label position="floating">Login</ion-label>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input type="text" id="login" name="login" maxlength="10" minlength="3" [(ngModel)]="form.login" #login="ngModel" autocomplete="none" required ngModel></ion-input>
+    </ion-item>
+    <span *ngIf="login.invalid && (login.dirty || login.touched)" class="alert">
+      <small *ngIf="login.errors?.['required']">
+        Le login est obligatoire
+      </small>
+      <small *ngIf="login.errors?.['minlength']">
+        Le login doit être au moins 3 caractères
+      </small>
+    </span>
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-icon name="key-outline" slot="start"></ion-icon>
+      <ion-input type="password" id="password" name="password" maxlength="12" minlength="8" [(ngModel)]="password.login" #password="ngModel" required ngModel></ion-input>
+    </ion-item>
+    <span *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+      <small *ngIf="password.errors?.['required']">
+        Le mot de passe est obligatoire
+      </small>
+      <small *ngIf="password.errors?.['minlength']">
+        Le mot de passe doit être au moins 8 caractères
+      </small>
+    </span>
+    <div>
+      <ion-button type="submit" color="success">CONNEXION</ion-button>
+    </div>
+  </form>
+
+  <section class="new">Pas de compte ? <a [routerLink]="['/register-client']">S'incrire</a></section>
+</ion-content>

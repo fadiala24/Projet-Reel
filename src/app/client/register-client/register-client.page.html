@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button mode="ios" text="Retour" color="dark"></ion-back-button>
+    </ion-buttons>
+    <img class="logo" src="assets/images/suma.png" alt="logo">
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+  <h4>INSCRIPTION</h4>
+
+  <form #form="ngForm" (ngSubmit)="ajout(form)">
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="nom" id="nom" [(ngModel)]="form.nom" #nom="ngModel" autocomplete="none" maxlength="20" minlength="2" required ngModel></ion-input>
+    </ion-item>
+    <span *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert">
+      <small *ngIf="nom.errors?.['required']">
+        Le nom est obligatoire
+      </small>
+      <small *ngIf="nom.errors?.['minlength']">
+        Le nom doit être au moins 2 caractères
+      </small>
+    </span>
+    <ion-item>
+      <ion-label position="floating">Prénom(s)</ion-label>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="prenom" id="prenom" [(ngModel)]="form.prenom" #prenom="ngModel" autocomplete="none" maxlength="20" minlength="2" required ngModel></ion-input>
+    </ion-item>
+    <span *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert">
+      <small *ngIf="prenom.errors?.['required']">
+        Le prénom est obligatoire
+      </small>
+      <small *ngIf="prenom.errors?.['minlength']">
+        Le prénom doit être au moins 2 caractères
+      </small>
+    </span>
+    <ion-item>
+      <ion-label position="floating">Téléphone</ion-label>
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-input type="tel" name="telephone" id="telephone" [(ngModel)]="form.telephone" #telephone="ngModel" autocomplete="none" maxlength="8" pattern="[0-9]{8}" required ngModel></ion-input>
+    </ion-item>
+    <span *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)" class="alert">
+      <small *ngIf="telephone.errors?.['required']">
+        Le téléphone est obligatoire
+      </small>
+      <small *ngIf="telephone.errors?.['pattern']">
+        Le téléphone doit être au moins 8 chiffres
+      </small>
+    </span>
+    <ion-item>
+      <ion-label position="floating">Login</ion-label>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="login" id="login" [(ngModel)]="form.login" #login="ngModel" autocomplete="none" maxlength="10" minlength="3" required ngModel></ion-input>
+    </ion-item>
+    <span *ngIf="login.invalid && (login.dirty || login.touched)" class="alert">
+      <small *ngIf="login.errors?.['required']">
+        Le login est obligatoire
+      </small>
+      <small *ngIf="login.errors?.['minlength']">
+        Le login doit être au moins 3 caractères
+      </small>
+    </span>
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-icon name="key-outline" slot="start"></ion-icon>
+      <ion-input type="password" id="password" [(ngModel)]="form.password" #password="ngModel" name="password" maxlength="12" minlength="8" required ngModel></ion-input>
+    </ion-item>
+    <span *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+      <small *ngIf="password.errors?.['required']">
+        Le login est obligatoire
+      </small>
+      <small *ngIf="password.errors?.['minlength']">
+        Le login doit être au moins 8 caractères
+      </small>
+    </span>
+    <ion-item>
+      <ion-input #photo type="file" accept=".jpg, .png" name="photo" (change)="view($event)" ngModel required></ion-input>
+    </ion-item>
+    <div>
+      <ion-button type="submit" color="success">VALIDER</ion-button>
+    </div>
+  </form>
+  <section class="new">Déjà un compte ? <a [routerLink]="['/login-client']">Se connecter</a></section>
+</ion-content>

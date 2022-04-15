@@ -1,0 +1,34 @@
+ion-toolbar {
+    --background: #69E97A;
+}
+
+.logo {
+    width: 50%;
+    transform: translateX(45%);
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input {
+    margin: 5px;
+    height: 30px;
+    border: #69E97A 2px solid;
+    border-radius: 15px;
+    outline: none;
+    width: 95%;
+}
+
+.bot {
+    width: 50%;
+    margin-top: 20px;
+    background-color: #69E97A;
+}
+
+h4 {
+    text-align: center;
+    color: #69E97A;
+    font-weight: 600;
+}
